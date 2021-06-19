@@ -79,3 +79,28 @@ Comandos para ejecutar ESlint y Prettier desde `package.json`
   }
 }
 ```
+
+### instalacion de husky y lint-staged
+
+Para instalar lint-staged
+
+`npx mrm lint-staged`
+
+En package.json se crea una configuración por defecto, cambiarla por:
+
+```js
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{html,ts,js,jsx,json,css,scss}": [
+      "eslint --cache --fix",
+      "prettier --write",
+      "git add"
+    ]
+  }
+```
+
+Si el hook no se ejecuta al hacer commit, es porque se debe registrar esta configuración con el siguiente comando:
+
+`npx simple-git-hooks`
