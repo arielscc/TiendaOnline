@@ -1,12 +1,30 @@
 import React from 'react';
-import { Box, Badge, Image, Heading, Text, HStack } from '@chakra-ui/react';
+import {
+  Box,
+  Badge,
+  Image,
+  Heading,
+  Text,
+  HStack,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
+import useStylesDark from '../utils/darkmode';
 
 const ProductCard = ({ product }) => {
   const { image, title, price, description } = product;
+  const { bgCard } = useStylesDark();
 
   return (
-    <Box maxW="sm" borderRadius="lg" overflow="hidden" bg="white" shadow="md">
+    <Box
+      maxW="sm"
+      borderRadius="lg"
+      overflow="hidden"
+      bg={bgCard}
+      shadow="md"
+      border="1px"
+      borderColor={useColorModeValue('gray.100', 'inherit')}
+    >
       <Image src={image} alt={title} h="250px" objectFit="contain" m="auto" />
       <Box p="6">
         <Heading mb="4">{title}</Heading>
