@@ -6,8 +6,8 @@ import useStylesDark from '../utils/darkmode';
 const ProductsGrid = ({ products }) => {
   const { bgBody } = useStylesDark();
   return (
-    <Flex bg={bgBody} justifyContent="center" p="24">
-      <Wrap justify="center" w="1200px" justifySelf="center" spacing="6">
+    <Flex bg={bgBody} justifyContent="center" p="4" pt="10">
+      <Wrap justify="center" maxW="1200px" justifySelf="center" spacing="6">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}

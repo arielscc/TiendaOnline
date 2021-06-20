@@ -320,10 +320,10 @@ export default function Header() {
             </Flex>
             <Flex justify="flex-end" align="center" color="gray.400">
               <HStack spacing="2" display={{ base: 'none', md: 'flex' }}>
-                <Button colorScheme="blue" variant="outline" size="sm">
+                <Button colorScheme="teal" variant="outline" size="sm">
                   Sign in
                 </Button>
-                <Button colorScheme="blue" variant="solid" size="sm">
+                <Button colorScheme="teal" variant="solid" size="sm">
                   Sign up
                 </Button>
               </HStack>

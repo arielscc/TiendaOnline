@@ -2,16 +2,28 @@ import React from 'react';
 import {
   Box,
   Badge,
-  Image,
   Heading,
   Text,
   HStack,
   useColorModeValue,
+  Modal,
+  ModalBody,
+  ModalOverlay,
+  ModalContent,
+  ModalFooter,
+  ModalCloseButton,
+  Image,
+  useDisclosure,
+  ModalHeader,
+  Button,
+  IconButton,
 } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
+import { BiShow, BiCart } from 'react-icons/bi';
 import useStylesDark from '../utils/darkmode';
 
 const ProductCard = ({ product }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const { image, title, price, description } = product;
   const { bgCard } = useStylesDark();
 
@@ -24,9 +36,19 @@ const ProductCard = ({ product }) => {
       shadow="md"
       border="1px"
       borderColor={useColorModeValue('gray.100', 'inherit')}
+      position="relative"
     >
-      <Image src={image} alt={title} h="250px" objectFit="contain" m="auto" />
-      <Box p="6">
+      <IconButton
+        icon={<BiShow />}
+        position="absolute"
+        top="0"
+        right="0"
+        m="2"
+        variant="outline"
+        onClick={onOpen}
+      />
+      <Image src={image} alt={title} h="200px" objectFit="contain" m="auto" />
+      <Box p="6" pt="0">
         <Heading mb="4">{title}</Heading>
         <HStack spacing="2">
           <Badge borderRadius="full" px="2" colorScheme="teal">
@@ -53,9 +75,9 @@ const ProductCard = ({ product }) => {
             $ {price} c/u
           </Text>
           <Box d="flex" mt="2" alignItems="center">
-            <StarIcon color="teal.500" />
-            <StarIcon color="teal.500" />
-            <StarIcon color="teal.500" />
+            <StarIcon color={useColorModeValue('teal.500', 'teal.200')} />
+            <StarIcon color={useColorModeValue('teal.500', 'teal.200')} />
+            <StarIcon color={useColorModeValue('teal.500', 'teal.200')} />
             <StarIcon color="gray.300" />
             <StarIcon color="gray.300" />
             <Box as="span" ml="2" color="gray.600" fontSize="sm">
@@ -63,7 +85,48 @@ const ProductCard = ({ product }) => {
             </Box>
           </Box>
         </HStack>
+        <Button
+          leftIcon={<BiCart />}
+          w="full"
+          mt="4"
+          colorScheme="teal"
+          fontWeight="bold"
+        >
+          Comprar
+        </Button>
       </Box>
+      <Modal
+        isCentered
+        onClose={onClose}
+        isOpen={isOpen}
+        motionPreset="slideInBottom"
+        size="3xl"
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>
+            <Heading mb="4" textAlign="center">
+              {title}
+            </Heading>
+          </ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Image
+              src={image}
+              w="full"
+              h={['40vh', '60vh']}
+              objectFit="contain"
+              loading="lazy"
+            />
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="teal" mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant="ghost">Secondary Action</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };
