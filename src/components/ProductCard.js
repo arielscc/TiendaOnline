@@ -25,7 +25,7 @@ import useStylesDark from '../utils/darkmode';
 const ProductCard = ({ product }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { image, title, price, description } = product;
-  const { bgCard } = useStylesDark();
+  const { bgCard, textColor } = useStylesDark();
 
   return (
     <Box
@@ -66,12 +66,18 @@ const ProductCard = ({ product }) => {
           </Box>
         </HStack>
 
-        <Text mt="1" fontWeight="semibold" as="h4" lineHeight="tight">
+        <Text
+          as="h4"
+          color={textColor}
+          fontWeight="medium"
+          lineHeight="tight"
+          mt="1"
+        >
           {description}
         </Text>
 
         <HStack justifyContent="space-between" mt="2">
-          <Text as="p" color="gray.500" fontWeight="semibold">
+          <Text as="p" color={textColor} fontWeight="bold" fontSize="xl">
             $ {price} c/u
           </Text>
           <Box d="flex" mt="2" alignItems="center">
@@ -80,7 +86,12 @@ const ProductCard = ({ product }) => {
             <StarIcon color={useColorModeValue('teal.500', 'teal.200')} />
             <StarIcon color="gray.300" />
             <StarIcon color="gray.300" />
-            <Box as="span" ml="2" color="gray.600" fontSize="sm">
+            <Box
+              as="span"
+              ml="2"
+              color={useColorModeValue('gray.600', 'gray.300')}
+              fontSize="sm"
+            >
               34 reviews
             </Box>
           </Box>
