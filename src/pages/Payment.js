@@ -9,6 +9,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { FaPaypal } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import useStylesDark from '../utils/darkmode';
 
 const Payment = () => {
@@ -31,6 +32,8 @@ const Payment = () => {
             <Text>$35</Text>
           </HStack>
           <Button
+            as={Link}
+            to="/checkout/success"
             rightIcon={<FaPaypal />}
             variant="solid"
             colorScheme="green"

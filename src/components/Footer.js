@@ -1,5 +1,13 @@
 import React from 'react';
-import { Box, Stack, Heading, Text, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Stack,
+  Text,
+  useColorModeValue,
+  Link,
+  chakra,
+} from '@chakra-ui/react';
+import { Link as RLink } from 'react-router-dom';
 import useStylesDark from '../utils/darkmode';
 
 const Footer = () => {
@@ -21,7 +29,23 @@ const Footer = () => {
           justify="space-between"
           px="4"
         >
-          <Heading>PlatziStore</Heading>
+          <Link
+            as={RLink}
+            to="/"
+            mr="2"
+            color={textColor}
+            _hover={{
+              textDecoration: 'none',
+              color: useColorModeValue('teal.500', 'teal.300'),
+            }}
+            _focus={{
+              outline: 'none',
+            }}
+          >
+            <chakra.h3 fontSize="3xl" fontWeight="bold">
+              Platzi Merch
+            </chakra.h3>
+          </Link>
           <Box color={textColor}>
             <Text fontWeight="semibold">
               Diseñado y Desarrollado con el ♥ por @arielscc

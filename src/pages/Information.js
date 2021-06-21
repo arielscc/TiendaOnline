@@ -25,6 +25,7 @@ import {
   FaPhone,
   FaShoppingBag,
 } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import useStylesDark from '../utils/darkmode';
 
 const Information = () => {
@@ -158,6 +159,8 @@ const Information = () => {
             <Text>$35</Text>
           </HStack>
           <Button
+            as={Link}
+            to="/checkout/payment"
             rightIcon={<FaShoppingBag />}
             variant="solid"
             colorScheme="green"

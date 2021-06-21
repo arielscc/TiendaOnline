@@ -14,14 +14,15 @@ import {
   DrawerHeader,
   DrawerBody,
   DrawerContent,
-  Heading,
   VStack,
+  Link,
 } from '@chakra-ui/react';
 import { useViewportScroll } from 'framer-motion';
 
 import { AiOutlineMenu } from 'react-icons/ai';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import { FaMoon, FaShoppingBag, FaSun } from 'react-icons/fa';
 import { VscClose } from 'react-icons/vsc';
+import { Link as RLink } from 'react-router-dom';
 import useStylesDark from '../utils/darkmode';
 
 export default function Header() {
@@ -49,7 +50,9 @@ export default function Header() {
           display="flex"
           justifyContent="space-between"
         >
-          <Heading size="lg">PlatziStore</Heading>
+          <RLink to="/" size="lg">
+            Tienda
+          </RLink>
           <IconButton
             display={{ base: 'flex', md: 'none' }}
             aria-label="close menu"
@@ -116,9 +119,23 @@ export default function Header() {
             justifyContent="space-between"
           >
             <Flex>
-              <Heading size="lg" mr="4">
-                PlatziStore
-              </Heading>
+              <Link
+                as={RLink}
+                to="/"
+                mr="2"
+                color={textColor}
+                _hover={{
+                  textDecoration: 'none',
+                  color: useColorModeValue('teal.500', 'teal.300'),
+                }}
+                _focus={{
+                  outline: 'none',
+                }}
+              >
+                <chakra.h1 fontSize="3xl" fontWeight="bold">
+                  Platzi Merch
+                </chakra.h1>
+              </Link>
               <HStack spacing="5" display={{ base: 'none', md: 'flex' }}>
                 <Button
                   bg={bg}
@@ -157,11 +174,15 @@ export default function Header() {
             </Flex>
             <Flex justify="flex-end" align="center" color="gray.400">
               <HStack spacing="2" display={{ base: 'none', md: 'flex' }}>
-                <Button colorScheme="teal" variant="outline" size="sm">
-                  Sign in
-                </Button>
-                <Button colorScheme="teal" variant="solid" size="sm">
-                  Sign up
+                <Button
+                  as={RLink}
+                  to="/checkout"
+                  leftIcon={<FaShoppingBag />}
+                  colorScheme="teal"
+                  variant="solid"
+                  size="sm"
+                >
+                  Checkout
                 </Button>
               </HStack>
               <IconButton

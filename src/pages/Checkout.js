@@ -23,6 +23,7 @@ import {
 import { ArrowForwardIcon, DeleteIcon } from '@chakra-ui/icons';
 import { VscSymbolNumeric } from 'react-icons/vsc';
 import { IoPricetagsOutline } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 import useStylesDark from '../utils/darkmode';
 import initialstate from '../initalstate';
 
@@ -168,6 +169,8 @@ const Checkout = () => {
             <Text>$35</Text>
           </HStack>
           <Button
+            as={Link}
+            to="/checkout/information"
             rightIcon={<ArrowForwardIcon />}
             variant="solid"
             colorScheme="green"
