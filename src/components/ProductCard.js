@@ -15,7 +15,7 @@ import { StarIcon } from '@chakra-ui/icons';
 import { BiShow, BiCart } from 'react-icons/bi';
 import useStylesDark from '../utils/darkmode';
 import AppContext from '../context/AppContext';
-import { ModalImage } from './ModalImage';
+import ModalImage from './ModalImage';
 
 const ProductCard = ({ product }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -106,7 +106,12 @@ const ProductCard = ({ product }) => {
           Add to Cart
         </Button>
       </Box>
-      <ModalImage title={title} image={image} isOpen={isOpen} onClose={onClose} />
+      <ModalImage
+        title={title}
+        image={image}
+        isOpen={isOpen}
+        onClose={onClose}
+      />
     </Box>
   );
 };
