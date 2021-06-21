@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Box,
   Badge,
@@ -21,12 +21,17 @@ import {
 import { StarIcon } from '@chakra-ui/icons';
 import { BiShow, BiCart } from 'react-icons/bi';
 import useStylesDark from '../utils/darkmode';
+import AppContext from '../context/AppContext';
 
 const ProductCard = ({ product }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { image, title, price, description } = product;
   const { bgCard, textColor } = useStylesDark();
+  const { addToCart } = useContext(AppContext);
 
+  const handleAddToCart = (payload) => {
+    addToCart(payload);
+  };
   return (
     <Box
       maxW="sm"
@@ -102,8 +107,9 @@ const ProductCard = ({ product }) => {
           mt="4"
           colorScheme="teal"
           fontWeight="bold"
+          onClick={() => handleAddToCart(product)}
         >
-          Comprar
+          Add to Cart
         </Button>
       </Box>
       <Modal

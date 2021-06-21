@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Box,
   Table,
@@ -25,12 +25,13 @@ import { VscSymbolNumeric } from 'react-icons/vsc';
 import { IoPricetagsOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 import useStylesDark from '../utils/darkmode';
-import initialstate from '../initalstate';
+import AppContext from '../context/AppContext';
 
 const Checkout = () => {
   const { bg } = useStylesDark();
-  const { cart } = initialstate;
   const { textColor } = useStylesDark();
+  const { state } = useContext(AppContext);
+  const { cart } = state;
 
   return (
     <>
