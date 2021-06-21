@@ -6,15 +6,8 @@ import {
   Text,
   HStack,
   useColorModeValue,
-  Modal,
-  ModalBody,
-  ModalOverlay,
-  ModalContent,
-  ModalFooter,
-  ModalCloseButton,
   Image,
   useDisclosure,
-  ModalHeader,
   Button,
   IconButton,
 } from '@chakra-ui/react';
@@ -22,6 +15,7 @@ import { StarIcon } from '@chakra-ui/icons';
 import { BiShow, BiCart } from 'react-icons/bi';
 import useStylesDark from '../utils/darkmode';
 import AppContext from '../context/AppContext';
+import { ModalImage } from './ModalImage';
 
 const ProductCard = ({ product }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -112,38 +106,7 @@ const ProductCard = ({ product }) => {
           Add to Cart
         </Button>
       </Box>
-      <Modal
-        isCentered
-        onClose={onClose}
-        isOpen={isOpen}
-        motionPreset="slideInBottom"
-        size="3xl"
-      >
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>
-            <Heading mb="4" textAlign="center">
-              {title}
-            </Heading>
-          </ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
-            <Image
-              src={image}
-              w="full"
-              h={['40vh', '60vh']}
-              objectFit="contain"
-              loading="lazy"
-            />
-          </ModalBody>
-          <ModalFooter>
-            <Button colorScheme="teal" mr={3} onClick={onClose}>
-              Close
-            </Button>
-            <Button variant="ghost">Secondary Action</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+      <ModalImage title={title} image={image} isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   chakra,
   HStack,
@@ -24,6 +24,7 @@ import { FaMoon, FaShoppingBag, FaSun } from 'react-icons/fa';
 import { VscClose } from 'react-icons/vsc';
 import { Link as RLink } from 'react-router-dom';
 import useStylesDark from '../utils/darkmode';
+import AppContext from '../context/AppContext';
 
 export default function Header() {
   const { bg, btnHover, textColor } = useStylesDark();
@@ -40,6 +41,10 @@ export default function Header() {
   React.useEffect(() => scrollY.onChange(() => setY(scrollY.get())), [scrollY]);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const { state } = useContext(AppContext);
+  const { cart } = state;
+  const total = cart.length;
 
   const MobileNavContent = (
     <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
@@ -181,6 +186,7 @@ export default function Header() {
                   colorScheme="teal"
                   variant="solid"
                   size="sm"
+                  rightIcon={total}
                 >
                   Checkout
                 </Button>
