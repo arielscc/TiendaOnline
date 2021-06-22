@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   HStack,
   SimpleGrid,
@@ -25,6 +25,7 @@ import * as Yup from 'yup';
 import useStylesDark from '../utils/darkmode';
 import FormInputs from '../components/FormInputs';
 import useInitialState from '../hooks/useInitialState';
+import AppContext from '../context/AppContext';
 
 const formIcons = {
   name: <FaUser />,
@@ -39,6 +40,10 @@ const formIcons = {
 };
 
 const Information = () => {
+  const { state } = useContext(AppContext);
+  const { cart } = state;
+  const total = cart.reduce((acc, cur) => acc + cur.price, 0);
+
   const { bg, textColor } = useStylesDark();
   const { addToBuyer } = useInitialState();
   const inputs = Object.keys(formIcons);
@@ -128,7 +133,7 @@ const Information = () => {
               <Divider />
               <HStack justify="space-between" w="full" fontWeight="bold">
                 <Text>Total Quantity</Text>
-                <Text fontSize="xl"> 2</Text>
+                <Text fontSize="xl">{cart.length}</Text>
               </HStack>
               <Divider />
               <HStack
@@ -138,7 +143,7 @@ const Information = () => {
                 fontSize="2xl"
               >
                 <Text>Total</Text>
-                <Text>$35</Text>
+                <Text>${total}</Text>
               </HStack>
               <Button
                 rightIcon={<FaShoppingBag />}
