@@ -24,24 +24,24 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import useStylesDark from '../utils/darkmode';
 import FormInputs from '../components/FormInputs';
+import useInitialState from '../hooks/useInitialState';
+
+const formIcons = {
+  name: <FaUser />,
+  email: <FaEnvelope />,
+  address: <FaAddressBook />,
+  apto: <FaLocationArrow />,
+  city: <FaCity />,
+  country: <FaFlag />,
+  state: <FaShieldAlt />,
+  postal: <FaDirections />,
+  phone: <FaPhone />,
+};
 
 const Information = () => {
   const { bg, textColor } = useStylesDark();
-
-  const formIcons = {
-    name: <FaUser />,
-    email: <FaEnvelope />,
-    address: <FaAddressBook />,
-    apto: <FaLocationArrow />,
-    city: <FaCity />,
-    country: <FaFlag />,
-    state: <FaShieldAlt />,
-    postal: <FaDirections />,
-    phone: <FaPhone />,
-  };
-
+  const { addToBuyer } = useInitialState();
   const inputs = Object.keys(formIcons);
-
   return (
     <>
       <Formik
@@ -86,6 +86,7 @@ const Information = () => {
             .required('Required'),
         })}
         onSubmit={(values, { setSubmitting }) => {
+          addToBuyer(values);
           setSubmitting(false);
         }}
       >
