@@ -3,12 +3,12 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 
 const Map = ({ data }) => {
   const defaultCenter = {
-    lat: data.lat,
-    lng: data.lng,
+    lat: +data.lat,
+    lng: parseFloat(data.lng),
   };
   return (
     <LoadScript googleMapsApiKey={process.env.GOOGLE_MAPS_TOKEN}>
-      <GoogleMap center={defaultCenter} zoom={9}>
+      <GoogleMap center={defaultCenter} zoom={14}>
         <Marker position={defaultCenter} />
       </GoogleMap>
     </LoadScript>

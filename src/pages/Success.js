@@ -17,7 +17,7 @@ const Success = () => {
       <Text>Gracias por Realizar tu compra {buyer.name}</Text>
       <Text>Tu pedido llegara en 3 días a tu dirección</Text>
       <Box w="full">
-        <AspectRatio ratio={4 / 1}>
+        <AspectRatio ratio={4 / 2}>
           <Map data={buyerLocation} />
         </AspectRatio>
       </Box>

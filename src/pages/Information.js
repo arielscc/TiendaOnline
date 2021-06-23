@@ -57,7 +57,7 @@ const Information = () => {
       initialValues={{
         name: 'ariel',
         email: 'ariel@gmail.com',
-        address: 'villa c#12',
+        address: 'meseta villa concepcion achumani',
         apto: 'c#12',
         city: 'La paz',
         country: 'Bolivia',
@@ -71,7 +71,7 @@ const Information = () => {
           .required('Required'),
         email: Yup.string().email('Invalid email address').required('Required'),
         address: Yup.string()
-          .max(20, 'Must be 20 characters or less')
+          .max(40, 'Must be 40 characters or less')
           .required('Required'),
         apto: Yup.string()
           .max(20, 'Must be 20 characters or less')
