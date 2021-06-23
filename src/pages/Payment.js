@@ -9,7 +9,7 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { FaPaypal } from 'react-icons/fa';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { PayPalButton } from 'react-paypal-button';
 import useStylesDark from '../utils/darkmode';
 import useGetTotalAmount from '../hooks/useGetTotalAmount';
@@ -69,14 +69,13 @@ const Payment = () => {
           />
 
           <Button
-            as={Link}
-            to="/checkout/success"
             rightIcon={<FaPaypal />}
             variant="solid"
             colorScheme="green"
             shadow="md"
             w="full"
             type="submit"
+            onClick={() => handlePaymentSuccess({ status: 'COMPLETED' })}
           >
             Buy
           </Button>
