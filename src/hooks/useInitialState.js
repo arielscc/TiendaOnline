@@ -37,9 +37,15 @@ const useInitialState = () => {
       cart: state.cart.filter((item) => item.id !== payload.id),
     });
 
-  const addToBuyer = (payload) => {
+  const addToBuyer = (payload) =>
+    setState({
+      ...state,
+      buyer: payload,
+    });
+
+  const addNewOrder = (payload) => {
     toast({
-      title: 'Product Added to cart',
+      title: 'Compra Exitosa!!!',
       description: "We've registered your product in the cart.",
       status: 'success',
       duration: 2000,
@@ -48,7 +54,7 @@ const useInitialState = () => {
     });
     return setState({
       ...state,
-      buyer: [...state.buyer, payload],
+      order: [...state.order, payload],
     });
   };
 
@@ -57,6 +63,7 @@ const useInitialState = () => {
     addToCart,
     removeFromCart,
     addToBuyer,
+    addNewOrder,
   };
 };
 
