@@ -4,11 +4,12 @@
   "description": "Tienda en linea",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve",
+    "start": "webpack serve --mode development",
     "build": "webpack --mode production",
     "format": "prettier --write '{*.js,src/**/*.{js,jsx}}'",
     "lint": "eslint src/ --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "analyze": "npm run build -- --analyze"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,6 @@
     "axios": "^0.21.1",
     "formik": "^2.2.9",
     "framer-motion": "^4.1.17",
-    "npm": "^7.18.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
@@ -56,11 +56,13 @@
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
     "husky": "^6.0.0",
+    "image-minimizer-webpack-plugin": "^2.2.0",
+    "imagemin-optipng": "^8.0.0",
     "lint-staged": "^11.0.0",
     "mini-css-extract-plugin": "^1.6.0",
     "prettier": "^2.3.1",
-    "source-map-loader": "^3.0.0",
     "webpack": "^5.39.1",
+    "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
   },
