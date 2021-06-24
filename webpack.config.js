@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const BundleAnalyzerPlugin =
   require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -22,8 +23,15 @@ const plugins = [
   }),
   new ImageMinimizerPlugin({
     minimizerOptions: {
-      plugins: [['gifsicle', { interlaced: true }]],
+      plugins: [['optipng', { optimizationLevel: 5 }]],
     },
+  }),
+  new CopyPlugin({
+    patterns: [
+      { from: 'public/manifest.json', to: '' },
+      { from: 'public/service-worker.js', to: '' },
+      { from: 'public/icon.png', to: 'assets' },
+    ],
   }),
 ];
 
@@ -71,6 +79,7 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
+        type: 'asset',
       },
     ],
   },

@@ -44,7 +44,6 @@ const ModalImage = ({ title, image, isOpen, onClose }) => (
         <Button colorScheme="teal" mr={3} onClick={onClose}>
           Close
         </Button>
-        <Button variant="ghost">Secondary Action</Button>
       </ModalFooter>
     </ModalContent>
   </Modal>

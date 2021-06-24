@@ -7,13 +7,13 @@ import useStylesDark from '../utils/darkmode';
 const Layout = ({ children }) => {
   const { bgBody } = useStylesDark();
   return (
-    <div>
+    <>
       <Header />
-      <Flex bg={bgBody} justifyContent="center" p="4" py="10">
+      <Flex bg={bgBody} justifyContent="center" px="4" pb="10" pt="32">
         {children}
       </Flex>
       <Footer />
-    </div>
+    </>
   );
 };
 
