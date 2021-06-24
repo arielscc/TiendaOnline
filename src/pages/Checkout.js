@@ -109,6 +109,7 @@ const Checkout = () => {
                         src={product.image}
                         alt={product.title}
                         mr={['none', 'none', '2']}
+                        loading="lazy"
                       />
                       <Box>
                         <chakra.h4 color={textColor} fontWeight="bold">

@@ -46,7 +46,15 @@ const ProductCard = ({ product }) => {
         variant="outline"
         onClick={onOpen}
       />
-      <Image src={image} alt={title} h="200px" objectFit="contain" m="auto" />
+      <Image
+        src={image}
+        alt={title}
+        h="200px"
+        w="full"
+        objectFit="contain"
+        m="auto"
+        loading="lazy"
+      />
       <Box p="6" pt="0">
         <Heading mb="4">{title}</Heading>
         <HStack spacing="2">
