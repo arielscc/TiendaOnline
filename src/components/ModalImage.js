@@ -31,12 +31,13 @@ const ModalImage = ({ title, image, isOpen, onClose }) => (
       <ModalBody>
         <Image
           src={image}
-          w="500px"
-          h={['40vh', '400px']}
           objectFit="contain"
-          bg="red.200"
           m="auto"
           loading="lazy"
+          w="full"
+          h={['40vh', '400px']}
+          htmlWidth="500px"
+          htmlHeight="400px"
         />
       </ModalBody>
       <ModalFooter>

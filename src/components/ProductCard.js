@@ -52,6 +52,8 @@ const ProductCard = ({ product }) => {
         h="200px"
         w="300px"
         objectFit="contain"
+        htmlWidth="200px"
+        htmlHeight="300px"
         m="auto"
         loading="lazy"
       />
