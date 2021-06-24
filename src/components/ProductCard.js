@@ -50,7 +50,7 @@ const ProductCard = ({ product }) => {
         src={image}
         alt={title}
         h="200px"
-        w="full"
+        w="300px"
         objectFit="contain"
         m="auto"
         loading="lazy"

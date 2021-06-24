@@ -55,15 +55,15 @@ const Information = () => {
   return (
     <Formik
       initialValues={{
-        name: 'ariel',
-        email: 'ariel@gmail.com',
-        address: 'meseta villa concepcion achumani',
-        apto: 'c#12',
-        city: 'La paz',
-        country: 'Bolivia',
-        state: 'Plurinacional',
-        postal: '0000',
-        phone: '+591 76715597',
+        name: '',
+        email: '',
+        address: '',
+        apto: '',
+        city: '',
+        country: '',
+        state: '',
+        postal: '',
+        phone: '',
       }}
       validationSchema={Yup.object({
         name: Yup.string()
@@ -95,7 +95,7 @@ const Information = () => {
       onSubmit={handleSubmit}
     >
       {({ errors, touched }) => (
-        <HStack as={Form} w="7xl" bg={bg} p="8" spacing="8">
+        <HStack as={Form} w="7xl" bg={bg} p="8" spacing="8" noValidate>
           <VStack w="70%">
             <Heading size="lg" color={textColor} mb="4">
               Submission Form

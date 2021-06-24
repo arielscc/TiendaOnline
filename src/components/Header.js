@@ -138,7 +138,7 @@ export default function Header() {
                 }}
               >
                 <chakra.h1 fontSize="3xl" fontWeight="bold">
-                  Platzi Merch
+                  TiendaOnline
                 </chakra.h1>
               </Link>
               <HStack spacing="5" display={{ base: 'none', md: 'flex' }}>

@@ -43,7 +43,7 @@ const Footer = () => {
             }}
           >
             <chakra.h3 fontSize="3xl" fontWeight="bold">
-              Platzi Merch
+              TiendaOnline
             </chakra.h3>
           </Link>
           <Box color={textColor}>
